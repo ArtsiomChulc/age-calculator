@@ -3,7 +3,7 @@ const result = document.getElementById('result');
 const error = document.getElementById('error');
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-result.innerHTML = `<span class="result-title">Calculate your age</span>`;
+result.innerHTML = `<span class="result-title">Calculate your age (start at 100)</span>`;
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -22,7 +22,7 @@ form.addEventListener('submit', (e) => {
 		return;
 	}
 
-	if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > new Date().getFullYear()) {
+	if (day < 1 || day > 31 || month < 1 || month > 12 || year < 100 || year > new Date().getFullYear()) {
 		error.innerText = 'Please enter valid day, month and year.';
 		error.classList.remove('hidden');
 		return;
@@ -52,7 +52,7 @@ form.addEventListener('submit', (e) => {
 	}
 
 	result.innerHTML = `
-        <span class="result-title">Your age:</span>
+        <span class="result-title">Your age: </span>
         <span class="result-wrap">
             <span>${ageYear} years</span> 
             <span>${ageMonth} month${ageMonth === 1 ? '' : 's'}</span>
